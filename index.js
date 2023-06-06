@@ -91,13 +91,26 @@ class LinkedList {
     }
     return null;
   };
+
+  find = (value) => {
+    if (this.head !== null) {
+      let temp = this.head;
+      let counter = 0;
+      while (temp.next !== null) {
+        if (temp.value === value) return counter;
+        counter++;
+        temp = temp.next;
+      }
+    }
+    return null;
+  };
 }
 
 const list = new LinkedList();
-// list.append('first');
-// list.append('second');
-// list.append('third');
-// list.prepend('test');
+list.append('first');
+list.append('second');
+list.append('third');
+list.prepend('test');
 
 // console.log(list.getSize());
 // console.log(list.getHead());
@@ -105,5 +118,7 @@ const list = new LinkedList();
 // console.log(list.at(2));
 // console.log(list.pop());
 console.log(list.contains('second'));
+console.log(list.find('bla'));
+
 // console.log(list);
 // console.log(JSON.stringify(list));

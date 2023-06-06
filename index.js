@@ -131,6 +131,21 @@ class LinkedList {
     }
     return null;
   };
+
+  removeAt = (index) => {
+    if (this.head !== null && index >= 0 && index <= this.getSize()) {
+      if (index === 0) return (this.head = this.head.next);
+      let temp = this.head;
+      let counter = 0;
+
+      while (counter < index - 1) {
+        temp = temp.next;
+        counter++;
+      }
+      return (temp.next = temp.next.next);
+    }
+    return null;
+  };
 }
 
 const list = new LinkedList();
@@ -147,7 +162,5 @@ list.prepend('test');
 // console.log(list.contains('second'));
 // console.log(list.find('bla'));
 // list.isertAt('blabla', -2);
+// list.removeAt(3);
 console.log(list.toString());
-
-// console.log(list);
-// console.log(JSON.stringify(list));

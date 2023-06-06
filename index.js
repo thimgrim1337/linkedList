@@ -26,7 +26,7 @@ class LinkedList {
     this.head.next = temp;
   };
 
-  size = () => {
+  getSize = () => {
     if (this.head === null) return 0;
     let counter = 1;
     let temp = this.head;
@@ -34,14 +34,25 @@ class LinkedList {
       counter++;
       temp = temp.next;
     }
-
     return counter;
+  };
+
+  getHead = () => {
+    return this.head.value;
+  };
+
+  getTail = () => {
+    let temp = this.head;
+    while (temp.next !== null) temp = temp.next;
+    return temp.value;
   };
 }
 
 const list = new LinkedList();
 list.append('first');
-// list.append('second');
-// list.append('third');
+list.append('second');
+list.append('third');
 
-console.log(list.size());
+// console.log(list.getSize());
+console.log(list.getHead());
+console.log(list.getTail());

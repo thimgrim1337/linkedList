@@ -116,6 +116,21 @@ class LinkedList {
     }
     return (str += 'null');
   };
+
+  isertAt = (value, index) => {
+    if (this.head !== null && index >= 0 && index <= this.getSize()) {
+      let temp = this.head;
+      let counter = 0;
+
+      while (counter < index) {
+        temp = temp.next;
+        counter++;
+      }
+
+      return (temp.value = value);
+    }
+    return null;
+  };
 }
 
 const list = new LinkedList();
@@ -131,6 +146,7 @@ list.prepend('test');
 // console.log(list.pop());
 // console.log(list.contains('second'));
 // console.log(list.find('bla'));
+// list.isertAt('blabla', -2);
 console.log(list.toString());
 
 // console.log(list);

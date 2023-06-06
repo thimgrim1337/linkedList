@@ -104,6 +104,18 @@ class LinkedList {
     }
     return null;
   };
+
+  toString = () => {
+    let temp = this.head;
+    let str = '';
+    let counter = 0;
+    while (counter < this.getSize()) {
+      str += `( ${temp.value} ) -> `;
+      counter++;
+      temp = temp.next;
+    }
+    return (str += 'null');
+  };
 }
 
 const list = new LinkedList();
@@ -117,8 +129,9 @@ list.prepend('test');
 // console.log(list.getTail());
 // console.log(list.at(2));
 // console.log(list.pop());
-console.log(list.contains('second'));
-console.log(list.find('bla'));
+// console.log(list.contains('second'));
+// console.log(list.find('bla'));
+console.log(list.toString());
 
 // console.log(list);
 // console.log(JSON.stringify(list));

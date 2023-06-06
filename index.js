@@ -27,24 +27,43 @@ class LinkedList {
   };
 
   getSize = () => {
-    if (this.head === null) return 0;
-    let counter = 1;
-    let temp = this.head;
-    while (temp.next !== null) {
-      counter++;
-      temp = temp.next;
+    if (this.head !== null) {
+      let counter = 1;
+      let temp = this.head;
+      while (temp.next !== null) {
+        counter++;
+        temp = temp.next;
+      }
+      return counter;
     }
-    return counter;
+    return 0;
   };
 
   getHead = () => {
-    return this.head.value;
+    if (this.head !== null) return this.head.value;
+    return null;
   };
 
   getTail = () => {
-    let temp = this.head;
-    while (temp.next !== null) temp = temp.next;
-    return temp.value;
+    if (this.head !== null) {
+      let temp = this.head;
+      while (temp.next !== null) temp = temp.next;
+      return temp.value;
+    }
+    return null;
+  };
+
+  at = (index) => {
+    if (index >= this.getSize() || index < 0) return null;
+    if (this.head !== null) {
+      let temp = this.head;
+      let counter = 0;
+      while (counter !== index) {
+        counter++;
+        temp = temp.next;
+      }
+      return temp.value;
+    }
   };
 }
 
@@ -52,7 +71,10 @@ const list = new LinkedList();
 list.append('first');
 list.append('second');
 list.append('third');
+list.prepend('test');
 
-// console.log(list.getSize());
+console.log(list.getSize());
 console.log(list.getHead());
 console.log(list.getTail());
+console.log(list.at(-1));
+// console.log(JSON.stringify(list));

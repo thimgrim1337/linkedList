@@ -65,6 +65,20 @@ class LinkedList {
       return temp.value;
     }
   };
+
+  pop = () => {
+    if (this.head !== null) {
+      let temp = this.head;
+      while (temp.next !== null) {
+        if (temp.next.next === null) {
+          temp.next = null;
+          return;
+        }
+        temp = temp.next;
+      }
+    }
+    return 0;
+  };
 }
 
 const list = new LinkedList();
@@ -73,8 +87,10 @@ list.append('second');
 list.append('third');
 list.prepend('test');
 
-console.log(list.getSize());
-console.log(list.getHead());
-console.log(list.getTail());
-console.log(list.at(-1));
-// console.log(JSON.stringify(list));
+// console.log(list.getSize());
+// console.log(list.getHead());
+// console.log(list.getTail());
+// console.log(list.at(2));
+console.log(list.pop());
+// console.log(list);
+console.log(JSON.stringify(list));

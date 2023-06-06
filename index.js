@@ -25,11 +25,23 @@ class LinkedList {
     this.head = new Node(value);
     this.head.next = temp;
   };
+
+  size = () => {
+    if (this.head === null) return 0;
+    let counter = 1;
+    let temp = this.head;
+    while (temp.next !== null) {
+      counter++;
+      temp = temp.next;
+    }
+
+    return counter;
+  };
 }
 
 const list = new LinkedList();
 list.append('first');
-list.append('second');
-list.prepend('test');
+// list.append('second');
+// list.append('third');
 
-console.log(list);
+console.log(list.size());

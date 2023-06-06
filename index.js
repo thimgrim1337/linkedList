@@ -79,18 +79,31 @@ class LinkedList {
     }
     return 0;
   };
+
+  contains = (value) => {
+    if (this.head !== null) {
+      let temp = this.head;
+      while (temp.next !== null) {
+        if (temp.value === value) return true;
+        temp = temp.next;
+      }
+      return false;
+    }
+    return null;
+  };
 }
 
 const list = new LinkedList();
-list.append('first');
-list.append('second');
-list.append('third');
-list.prepend('test');
+// list.append('first');
+// list.append('second');
+// list.append('third');
+// list.prepend('test');
 
 // console.log(list.getSize());
 // console.log(list.getHead());
 // console.log(list.getTail());
 // console.log(list.at(2));
-console.log(list.pop());
+// console.log(list.pop());
+console.log(list.contains('second'));
 // console.log(list);
-console.log(JSON.stringify(list));
+// console.log(JSON.stringify(list));
